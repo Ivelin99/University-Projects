@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta name = "viewport" content = "width=device-width, initial-scale=1">
+		<link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel = "stylesheet" href = "calculators.css"/> <!-- CSS файл за промяна на изгледа на сайта -->
+		<script src = "calculators.js" defer></script> <!-- Javascript файл за промяна на настройките по сайта -->
+		<script src = "./script/PreNumRent.js" defer></script> <!-- Изчисляване на пренумерандна рента -->
+		<script src = "./script/PostNumRent.js" defer></script> <!-- Изчисляване на постнумерандна рента -->
+		<script src = "./script/DeadlineRent.js" defer></script> <!-- Изчисляване на срок на рентата -->
+		<script src = "./script/SPEP.js" defer></script> <!-- Изчисляване на търговски контракти за еднократно плащане в края на периода -->
+		<script src = "./script/DAC.js" defer></script> <!-- Изчисляване на амортизационни отчисления от стойността на придобиване  -->
+		<script src = "./script/RDERI.js" defer></script> <!-- Изчисляване на погасяването на дълга с еднакви погасителни вноски -->
+		<script src = "./script/CLP.js" defer></script> <!-- Създаване на съпоставка лизинг/покупка -->
+		<script src = "./script/ANI.js" defer></script> <!-- Изчисляване на ЧПД -->
+		
+		<!-- Зареждане на диаграмата -->
+		<script src="https://d3js.org/d3.v4.js"></script>
+		<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+	</head>
+
+	<body>
+
+		<div class="header">
+			<h1>Калкулатори по програмни системи за бизнес моделиране</h1>
+		</div>
+
+		<div class="topnav" id="myTopnav">
+			<a href="#HomePage"><i class = "fa fa-home"></i> Главна страница </a>
+			
+			<div class="menu">
+				<button class="menu-btn"> Рентни изчисления 
+					<i class="fa fa-caret-down"></i>
+				</button>
+				<div class="menu-content">
+					<a href="#PostNumRent"> Постнумерандна рента </a>
+					<a href="#PreNumRent"> Пренумерандна рента </a>
+					<a href="#DeadlineRent"> Определяне срока на рентата </a>
+				</div>
+			</div>
+			
+			<div class="menu">
+				<button class="menu-btn"> Търговски контракти 
+					<i class="fa fa-caret-down"></i>
+				</button>
+				<div class="menu-content">
+					<a href="#SinglePaymentAtEndOfPeriod"> Погасяване с еднократно плащане в края на периода </a>
+				</div>
+			</div>
+			
+			<div class="menu">
+				<button class="menu-btn"> Амортизационни отчисления 
+					<i class="fa fa-caret-down"></i>
+				</button>
+				<div class="menu-content">
+					<a href="#DeductionsAcquisitionCost"> Отчисления от стойността на придобиване </a>
+				</div>
+			</div>
+			
+			<div class="menu">
+				<button class="menu-btn"> Погасителни планове 
+					<i class="fa fa-caret-down"></i>
+				</button>
+				<div class="menu-content">
+					<a href="#RepaymentDebtEqualRepaymentInstallments"> Погасяване на дълга с еднакви погасителни вноски </a>
+				</div>
+			</div>
+			
+			<div class="menu">
+				<button class="menu-btn"> Лизингови операции 
+					<i class="fa fa-caret-down"></i>
+				</button>
+				<div class="menu-content">
+					<a href="#ComparisonLeasePurchase"> Съпоставка Лизинг/Покупка </a>
+				</div>
+			</div>
+			
+			<div class="menu">
+				<button class="menu-btn"> Ефективност на инвестициите 
+					<i class="fa fa-caret-down"></i>
+				</button>
+				<div class="menu-content">
+					<a href="#AdjustedNetIncome"> Метод на чистия приведен доход (ЧПД) </a>
+				</div>
+			</div>
+			
+			<a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="Responsive()">&#9776;</a>
+		</div>
+
+		<div class = "content">
+			<div id = "HomePage">
+				<h2> Анотация </h2>
+				<p> Здравейте и добре дошли в това уеб приложение за онлайн калкулатори по дисциплината "Програмни системи за бизнес моделиране".
+					Тук вие ще можете да правите всякакви пресмятания като започнете от рентни изчисления и стигнете до ефективност на инвестициите. В този 
+					сайт са създадени различни раздели като всеки един от тях съдържа отделен калкулатор, който отговаря за определен тип изчисление. Всички 
+					раздели имат свои менюта, в които се намират техните подразделения. За да имате достъп до всеки раздел, може да го потърсите в 
+					навигационното меню, което се намира под заглавието на сайта или да слезете надолу с мишката и да го видите по този начин. За достъп до
+					подразделенията, докоснете с мишката съответния раздел в навигационното меню и те ще се покажат, след което натиснете върху тях. 
+				</p>
+			</div>
+
+			<div id = "PostNumRent">
+				<h2> Рентни изчисления: Постнумерандна рента </h2>
+	
+				<div class = "container">
+					<b> Продължителност на рентните плащания </b><br>
+					<label><b> n = </b></label>
+					<input type = "number" id = "PostNumRent_Time">
+					<label><b> год. </b></label><br>
+	
+					<b> Сумата на всяко едно рентно плащане </b><br>
+					<label><b> R = </b></label>
+					<input type = "number" id = "PostNumRent_Sum">
+					<label><b> лв. </b></label><br>
+	
+					<b> Годишна лихва </b><br>
+					<label><b> i = </b></label>
+					<input type = "number" id = "PostNumRent_YearPercent">
+					<label><b> % </b></label><br>
+	
+					<b> Нарасналата сума 'Sn' e </b>
+					<output id = "PostNumRent_Output"></output>
+				</div>
+			</div>
+
+			<div id = "PreNumRent">
+				<h2> Рентни изчисления: Пренумерандна рента </h2>
+	
+				<div class = "container">
+					<b> Продължителност на рентните плащания </b><br>
+					<label><b> n = </b></label>
+					<input type = "number" id = "PreNumRent_Time">
+					<label><b> год. </b></label><br>
+	
+					<b> Сумата на всяко едно рентно плащане </b><br>
+					<label><b> R = </b></label>
+					<input type = "number" id = "PreNumRent_Sum">
+					<label><b> лв. </b></label><br>
+	
+					<b> Годишна лихва </b><br>
+					<label><b> i = </b></label>
+					<input type = "number" id = "PreNumRent_YearPercent">
+					<label><b> % </b></label><br>
+	
+					<b> Нарасналата сума 'Sn' e </b>
+					<output id = "PreNumRent_Output"></output>
+				</div>
+			</div>
+
+			<div id = "DeadlineRent">
+				<h2> Рентни изчисления: Определяне срока на рентата </h2>
+	
+				<div class = "container">
+					<b> Нарасналата сума на рентата след n-годишни плащания </b><br>
+					<label><b> Sn = </b></label>
+					<input type = "number" id = "DeadlineRent_Dur">
+					<label><b> лв. </b></label><br>
+	
+					<b> Сумата на всяко едно рентно плащане </b><br>
+					<label><b> R = </b></label>
+					<input type = "number" id = "DeadlineRent_Sum">
+					<label><b> лв. </b></label><br>
+	
+					<b> Годишна лихва </b><br>
+					<label><b> i = </b></label>
+					<input type = "number" id = "DeadlineRent_Interest">
+					<label><b> % </b></label><br>
+	
+					<b> Срокът на рентата 'n' e </b>
+					<output id = "DeadlineRent_Output"></output>
+				</div>
+			</div>
+	
+			<div id = "SinglePaymentAtEndOfPeriod">
+				<h2> Търговски контракти: Погасяване с еднократно плащане в края на периода </h2>
+	
+				<section>
+					<div class = "inputdata" style = "margin: 0px 0px 0px 22%">
+						<div class = "container">
+							<b> Цена </b><br>
+							<label><b> Z = </b></label>
+							<input type = "number" id = "SPEP_Price">
+							<label><b> лв </b></label><br>
+	
+							<b> Срок на доставка </b><br>
+							<label><b> T = </b></label>
+							<input type = "number" id = "SPEP_Term_Delivery"><br>
+	
+							<b> Срок на кредита </b><br>
+							<label><b> N = </b></label>
+							<input type = "number" id = "SPEP_Term_Credit"> <br>
+	
+							<b> Лихвена ставка на кредита </b><br>
+							<label><b> g = </b></label>
+							<input type = "number" id = "SPEP_Interest_Rate_Output">
+							<label><b> % </b></label><br>
+	
+							<b> Лихвена ставка за сравнение </b><br>
+							<label><b> i = </b></label>
+							<input type = "number" id = "SPEP_Interest_Rate_Comparison">
+							<label><b> % </b></label><br>
+	
+							<b> Брой плащания </b><br>
+							<input type = "number" id = "SPEP_Number_Of_Payments" onchange = "setTableRows()"><br>
+	
+							<button onclick = "SPEP()" class = "CalculateBtn"> Изчисление </button>
+						</div>
+					</div>
+	
+					<div class = "table-solution">
+						<label><b> Изчислени данни в табличен вид </b></label>
+	
+						<div class = "spep-table">
+							<div class = "row">
+								<div class = "col head"></div>
+								<div class = "col head"> Авансово плащане, Qt </div>
+								<div class = "col head"> Период между плащанията, t </div>
+							</div>
+							<div class = "spep-table-result">
+
+						    </div>
+						</div>
+						
+						<label><b> Осъвременена величина на разходите: </b></label>
+						<output id = "SPEP_Output"></output>
+					</div>	
+				</section>
+			</div>
+	
+			<div id = "DeductionsAcquisitionCost">
+				<h2> Амортизационни отчисления: Отчисления от стойността на придобиване </h2>
+	
+				<section>
+					<div class = "inputdata">
+						<div class = "container">
+							<label><b> A = </b></label>
+							<input type = "number" id = "DAC_A">
+							<label><b> лв </b></label><br>
+	
+							<label><b> t = </b></label>
+							<input type = "number" id = "DAC_t">
+							<label><b> години </b></label><br>
+	
+							<label><b> p = </b></label>
+							<input type = "number" id = "DAC_p">
+							<label><b> % </b></label><br>
+	
+							<label><b> S = </b></label>
+							<input type = "number" id = "DAC_S">
+							<label><b> лв </b></label><br>
+	
+							<button onclick = "DAC()" class = "CalculateBtn"> Изчисление </button>
+						</div>
+					</div>
+	            
+					<div class = "table-solution">
+						<label><b> Изчислени данни в табличен вид </b></label><br>
+						
+	                    <output id = "DAC_Output"> ? </output>
+						
+						<div class = "dac-table">
+							<div class = "row">
+								<div class = "col head">n</div>
+								<div class = "col head">Rn</div>
+								<div class = "col head">Dn</div>
+							</div>
+						    <div class = "dac-table-result">
+
+						    </div>
+						</div>
+					</div>
+	
+					<div class = "diagram-solution">
+						<label style = "float: left"><b> Графика на процеса на амортизация във времето </b></label>
+						<div id = "my_diagram" class = "diagram"></div>
+					</div>
+				</section>
+			</div>
+
+			<div id = "RepaymentDebtEqualRepaymentInstallments">
+				<h2> Погасителни планове: Погасяване на дълга с еднакви погасителни вноски </h2>
+	
+				<section>
+					<div class = "inputdata" style = "margin: 0px 0px 0px 15%">
+						<div class = "container">
+							<b> Дълг </b><br>
+							<label><b> K = </b></label>
+							<input type = "number" id="RDERI_S">
+							<label><b> лв </b></label><br>
+	
+							<b> Време </b><br>
+							<label><b> t = </b></label>
+							<input type = "number" id="RDERI_t">
+							<label><b> години </b></label><br>
+	
+							<b> Лихвена ставка на дълга <br>
+							<label><b> i = </b></label>
+							<input type = "number" id="RDERI_i">
+							<label><b> % </b></label><br>
+
+							<button onclick = "RDERI()" class = "CalculateBtn"> Изчисление </button>
+						</div>
+					</div>
+	
+					<div class = "table-solution">
+						<label><b> Изчислени данни в табличен вид </b></label>
+						<div class = "rderi-table">
+							<div class = "row">
+								<div class="col head"> Година, t </div>
+								<div class="col head"> Остатък от дълга в началото на годината, лв. </div>
+								<div class="col head"> Сума за погасяване на дълга, T, лв. </div>
+								<div class="col head"> Лихва, Zn, лв. </div>
+								<div class="col head"> Срочно плащане, An, лв. </div>
+							</div>
+							<div class="rderi-table-result">
+		
+	                        </div>
+						</div>
+					</div>
+				</section>
+			</div>
+	
+			<div id = "ComparisonLeasePurchase">
+				<h2> Лизингови операции: Съпоставка Лизинг/Покупка </h2>
+				<section>
+					<div class = "inputdata" style = "margin: 0px 0px 0px 40%">
+						<div class = "container">
+							<b> Срок </b><br>
+							<input type = "number" id="clp-n">
+							<label><b> месеца </b></label><br>
+	
+							<b> Цена на продукт </b><br>
+							<input type = "number" id="clp-S">
+							<label><b> лв </b></label><br>
+	
+							<b> Процент на допълнителни разходи <br>
+							<input type = "number" id="clp-p">
+							<label><b> % </b></label><br>
+                            
+							<b> Начало на разходите в месеци <br>
+							<input type = "number" id="clp-m">
+							<label><b> месеца </b></label><br>
+							
+							<b> Месечна вноска за наем <br>
+							<input type = "number" id="clp-rS">
+							<label><b> лв </b></label><br>
+							
+							<button onclick = "CLP()" class = "CalculateBtn"> Резултат </button>
+						</div>
+					</div>
+				</section>
+			</div>
+	
+			<div id = "AdjustedNetIncome">
+				<h2> Ефективност на инвестициите: Метод на чистия приведен доход (ЧПД) </h2>
+	
+				<button id = "AniAddRowButton"> Добави Инвестиция </button>
+				<button id = "AniAddColButton"> Добави Период </button>
+				<button id = "AniClearTableButton"> Изчисти таблица </button>
+				<button id = "AniExampleButton"> Примерна задача от лекция </button>
+				
+				<div class = "ani-table">
+					<div class = "row">
+						<div class = "col head"></div>
+						<div class = "col head"> Ставка </div>
+						<div class = "col head"> Първоначална инвестиция </div>
+					</div>
+				</div>
+				
+				<h3 style = "margin: 20px"> Резултат: </h3>
+				<div class = "ani-table-result">
+					<div class = "row">
+						<div class = "col head"> Инвестиция </div>
+						<div class = "col head"> ЧПД </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

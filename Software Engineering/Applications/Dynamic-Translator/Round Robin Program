@@ -1,0 +1,67 @@
+<script>
+const findWaitingTime = (processes, n, bt, wt, quantum) => {
+let rem_bt = new Array(n).fill(0);
+for (let i = 0; i < n; i++)
+rem_bt[i] = bt[i];
+let t = 0;
+while (1) {
+let done = true;
+for (let i = 0; i < n; i++) {
+if (rem_bt[i] > 0) {
+done = false;
+if (rem_bt[i] > quantum) {
+t += quantum;
+rem_bt[i] -= quantum;
+}
+else {
+t = t + rem_bt[i];
+wt[i] = t - bt[i];
+rem_bt[i] = 0;
+}
+}
+}
+if (done == true)
+break;
+}
+}
+// Function to calculate turn around time
+const findTurnAroundTime = (processes, n, bt, wt, tat) => {
+for (let i = 0; i < n; i++)
+tat[i] = bt[i] + wt[i];
+}
+
+// Function to calculate average time
+const findavgTime = (processes, n, bt, quantum) => {
+let wt = new Array(n).fill(0), tat = new Array(n).fill(0);
+let total_wt = 0, total_tat = 0;
+findWaitingTime(processes, n, bt, wt, quantum);
+findTurnAroundTime(processes, n, bt, wt, tat);
+console.clear();
+console.log("Process IDs: ");
+console.log(processes);
+console.log("Processes Burst time Waiting time Turn around time");
+
+for (let i = 0; i < n; i++) {
+total_wt = total_wt + wt[i];
+total_tat = total_tat + tat[i];
+console.log(`Process: ${i + 1} ${bt[i]} ${wt[i]} ${tat[i]}`);
+}
+console.log(`Average waiting time = ${total_wt / n}`);
+console.log(`Average turn around time = ${total_tat / n}`);
+console.log(" ");
+}
+
+function newProc(id) {
+processes.push(id)
+n = processes.length;
+let rand_bt = Math.floor(Math.random() * 10) + 1
+burst_time.push(rand_bt);
+quantum = 50;
+findavgTime(processes, n, burst_time, quantum);
+}
+
+let btn = document.getElementById("button")
+btn.addEventListener('click', function(){
+newProc(processes.length)
+})
+</script>

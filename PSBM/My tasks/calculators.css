@@ -1,0 +1,358 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+	margin:0;
+	font-family:Arial;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+.header {
+	background-image: url("./header_image/PRBM.jpg");
+	color: white;
+	padding: 50px;
+	text-align: center;
+}
+
+.topnav {
+	height: 48px;
+	background-color: #333;
+}
+
+.topnav a {
+	float: left;
+	display: block;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 15px;
+}
+
+.topnav .icon {
+	display: none;
+}
+
+.menu {
+	float: left;
+	text-align: center;
+	overflow: hidden;
+	width: 15.20%;
+}
+
+.menu .menu-btn {
+	font-size: 17px;    
+	border: none;
+	outline: none;
+	color: white;
+	padding: 14px 16px;
+	background-color: inherit;
+	font-family: inherit;
+	margin: 0;
+}
+
+.menu-content {
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+}
+
+.menu-content a {
+	float: none;
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+	text-align: left;
+}
+
+.topnav a:hover, .menu:hover, .menu-btn {
+	background-color: #555;
+	color: white;
+}
+
+.menu-content a:hover {
+	background-color: #ddd;
+	color: black;
+}
+
+.menu:hover .menu-content {
+	display: block;
+}
+
+@media screen and (max-width: 1259px) {
+  .topnav a:not(:first-child), .menu .menu-btn {
+    display: none;
+  }
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 1259px) {
+  .topnav.responsive {
+	position: relative;
+  }
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .topnav.responsive .menu {
+	float: none;
+  }
+  .topnav.responsive .menu-content {
+	position: relative;
+  }
+  .topnav.responsive .menu .menu-btn {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+.sticky {
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+
+.sticky + .content {
+	padding-top: 60px;
+}
+
+.content h2 {
+	margin-top: 0;
+	padding: 30px;
+	text-align: center;
+	font-size: 30px;
+}
+
+.content #HomePage p {
+	padding: 30px;
+	text-align: justify;
+	font-size: 25px;
+}
+
+.content > div {
+	margin: 0;
+	padding: 0;
+	padding-bottom: 40px;
+}
+
+#HomePage {
+	min-height: 480px;
+	height: auto;
+    background-color: pink;
+}
+
+#PostNumRent {
+	min-height: 600px;
+	height: auto;
+    background-color: lightblue;
+}
+
+#PreNumRent {
+	min-height: 600px;
+	height: auto;
+    background-color: red;
+}
+
+#DeadlineRent {
+	min-height: 600px;
+	height: auto;
+    background-color: green;
+}
+
+#SinglePaymentAtEndOfPeriod {
+	min-height: 700px;
+	height: auto;
+    background-color: yellow;
+}
+
+#DeductionsAcquisitionCost {
+	min-height: 600px;
+	height: auto;
+    background-color: gray;
+}
+
+#RepaymentDebtEqualRepaymentInstallments {
+	min-height: 600px;
+	height: auto;
+    background-color: lightblue;
+}
+
+#ComparisonLeasePurchase {
+	min-height: 600px;
+	height: auto;
+    background-color: green;
+}
+
+#AdjustedNetIncome {
+	min-height: 600px;
+	height: auto;
+    background-color: orange;
+}
+
+#PostNumRent .container, #PreNumRent .container, #DeadlineRent .container {
+	margin: 100px 0 0 37%;
+	font-size: 20px;
+}
+
+section::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.inputdata {
+	float: left;
+	width: 30%;
+	height: 400px;
+	padding: 20px;
+}
+
+.container label {
+	width: 45px;
+	display: inline-block;
+}
+
+.table-solution {
+	float: left;
+    padding: 20px;
+	width: 35%;
+	height: 480px;
+}
+
+.diagram-solution {
+	float: left;
+    padding: 20px;
+	width: 35%;
+	height: 480px;
+}
+
+.container input[type=number] {
+	padding: 5px;
+	margin: 5px 2px 22px 2px;
+	border: none;
+	background: #f1f1f1;
+}
+
+.container .CalculateBtn {
+	background-color: #04AA6D;
+	color: white;
+	font-size: 15px;
+	padding: 16px 20px;
+	margin: 8px 18px;
+	border: none;
+	cursor: pointer;
+	opacity: 0.9;
+}
+
+.ani-table, .ani-table-result {
+    width: calc(100% - 40px);
+    max-height: 500px;
+    padding: 6px 0;
+    padding-top: 24px;
+    padding-right: 20px;
+    padding-left: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    background-color: none;
+    color: black;
+}
+
+.spep-table, .dac-table, .rderi-table {
+	width: auto;
+}
+
+.ani-table .row, .ani-table-result .row, .spep-table .row, .spep-table-result .row, 
+.dac-table .row, .dac-table-result .row, .rderi-table .row, .rderi-table-result .row {
+    max-width: 800px;
+    width: calc(100% - 20px);
+    padding-right: 20px;
+    display: flex;
+}
+
+.ani-table .row .col, .ani-table-result .row .col, .spep-table .row .col, .spep-table-result .row .col,
+.dac-table .row .col, .dac-table-result .row .col, .rderi-table .row .col, .rderi-table-result .row .col {
+    min-width: 150px;
+    max-width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px solid black;
+    margin-top: -1px;
+    margin-left: -1px;
+}
+
+.ani-table .row:nth-child(1) .col, .ani-table-result .row:nth-child(1) .col, 
+.spep-table .row:nth-child(1) .col, .spep-table-result .row:nth-child(1) .col {
+    margin-top: 0px;
+}
+
+.ani-table .row .col:nth-child(1), .ani-table-result .row .col:nth-child(1),
+.spep-table .row .col:nth-child(1), .spep-table-result .row .col:nth-child(1) {
+    position: relative;
+    min-width: 140px;
+    max-width: 140px;
+    margin-left: 0px;
+}
+
+.ani-table .row .col input, .spep-table .row .col input {
+    width: 100%;
+    height: calc(100% - 8px);
+    text-align: right;
+    border: none;
+    padding: 4px 4px;
+    background: none;
+    color: black;
+}
+
+.ani-table .row .col:nth-child(1) input, .spep-table .row .col:nth-child(1) input {
+    text-align: left;
+}
+
+.ani-table .row .col input:active, .spep-table .row .col input:active {
+    border: none;
+}
+
+#AniAddRowButton, #AniAddColButton, #AniClearTableButton, #AniExampleButton {
+	color: white;
+	font-size: 15px;
+	padding: 16px 20px;
+	margin: 8px 18px;
+	border: none;
+	cursor: pointer;
+	opacity: 0.9;
+}
+
+#AniAddRowButton {
+	background-color: blue;
+}
+
+#AniAddColButton {
+	background-color: red;
+}
+
+#AniClearTableButton {
+	background-color: gray;
+}
+
+#AniExampleButton { 
+	background-color: green;
+}

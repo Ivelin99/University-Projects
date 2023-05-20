@@ -1,0 +1,325 @@
+body {
+	font-family: Arial;
+	font-size: 26px;
+	max-width: 100vw;
+	max-height: 100vh;
+	overflow-x: hidden; /* Hide horizontal scrollbar */
+	overflow-y: hidden; /* Hide vertical scrollbar */
+}
+
+.main {
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	overflow-x: hidden; /* Hide horizontal scrollbar */
+	overflow-y: hidden; /* Hide vertical scrollbar */
+	scroll-behavior: smooth;
+}
+
+.navmenu {
+	overflow: hidden;
+	width: 100%;
+	position: fixed;
+	background-color: #333;
+	padding: 14px 18px;
+	transition: 0.5s;
+}
+
+.navmenu .navmenu-links a {
+	float: left;
+	margin-left: 15px;
+	color: #f2f2f2;
+	font-size: 18px;
+	padding: 16px 20px;
+	text-decoration: none;
+	transition: 0.5s;
+}
+
+.active {
+	background-color: orangered;
+}
+
+.ChangeTheme .navmenu .navmenu-links a {
+	color: black;
+}
+
+.ChangeTheme .navmenu .navmenu-links a:hover, #translate-button, #theme, 
+.ChangeTheme #search-button:hover, .ChangeTheme #translate-button:hover {
+	background-color: #333;
+	color: #f2f2f2;
+}
+
+#translate-button, #theme {
+    float: right;
+    margin-right: 15px;
+    border: none;
+    font-size: 18px;
+    padding: 16px 22px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.navmenu .navmenu-links a:hover, #translate-button:hover, #theme:hover, 
+.ChangeTheme .navmenu, .ChangeTheme #translate-button {
+	background-color: #ddd;
+	color: black;
+}
+
+.background_color #translate-button, .background_color #translate-button:hover, .themebackgroundcolor #theme {
+	background-color: orange;
+	color: white;
+}
+
+.navmenu #google_translate_element {
+	display: none;
+	float: right;
+	margin-top: 11px;
+	border: none;
+	padding: 0px 14px;
+}
+
+.container {
+	width: 300vw;
+	display: flex;
+	flex-direction: row;
+	background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(121,9,103,1) 47%, rgba(0,212,255,1) 100%);
+	transition: 0.5s;
+}
+
+.ChangeTheme .container {
+	background-color: #333;
+}
+
+.ChangeTheme .about-website h1, .ChangeTheme .about-website p {
+	color: #f2f2f2;
+}
+
+.about-website, .video-tutorial, .registration-login {
+	width: 100vw;
+	height: 100vh;
+	align-items: center;
+	justify-content: space-between;
+	display: flex;
+}
+
+.section {
+	width: 86%;
+	margin: 0 auto;
+}
+
+.about-website p {
+	text-align: justify; 
+	padding: 4px 12px;
+	transition: 0.5s;
+}
+
+.wrapper {
+  margin: 0 auto;
+  margin-top: 60px;
+  overflow: hidden;
+  max-width: 500px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
+}
+
+.wrapper .title-text {
+  display: flex;
+  width: 200%;
+}
+
+.wrapper .title {
+  width: 50%;
+  font-size: 35px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.wrapper .slide-controls {
+  position: relative;
+  display: flex;
+  height: 50px;
+  width: 100%;
+  overflow: hidden;
+  margin: 30px 0 10px 0;
+  justify-content: space-between;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+}
+
+.slide-controls .slide {
+  height: 100%;
+  width: 100%;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 48px;
+  cursor: pointer;
+  z-index: 1;
+  transition: all 0.6s;
+}
+
+.slide-controls label.signup {
+  color: #000;
+}
+
+.slide-controls .slider-tab {
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  left: 0;
+  z-index: 0;
+  border-radius: 5px;
+  background: -webkit-linear-gradient(left, #a445b2, #fa4299);
+  transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+#signup:checked ~ .slider-tab {
+  left: 50%;
+}
+
+#signup:checked ~ label.signup {
+  color: #fff;
+  cursor: default;
+  user-select: none;
+}
+
+#signup:checked ~ label.login {
+  color: #000;
+}
+
+#login:checked ~ label.signup {
+  color: #000;
+}
+
+#login:checked ~ label.login {
+  cursor: default;
+  user-select: none;
+}
+
+.wrapper .form-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.form-container .form-inner {
+  display: flex;
+  width: 200%;
+}
+
+.form-container .form-inner form {
+  width: 50%;
+  transition: all 0.6s;
+}
+
+.form-inner form .field {
+  height: 50px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.form-inner form .field input {
+  height: 100%;
+  width: 100%;
+  font-size: 17px;
+  transition: all 0.3s;
+}
+
+.form-inner form .field input[type="password"], .form-inner form .field input[type="text"] {
+padding: 8px 36px 8px 8px;
+} 
+
+.form-inner form .pass-link {
+  margin-top: 10px;
+  margin-left: 13px;
+  font-size: 20px;
+}
+
+.form-inner form .contract-link {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 17px;
+}
+
+.form-inner form .login-link, .form-inner form .signup-link {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 20px;
+}
+
+.form-inner form .pass-link a,
+.form-inner form .contract-link a, 
+.form-inner form .login-link a,
+.form-inner form .signup-link a {
+  color: blue;
+  text-decoration: none;
+}
+
+.form-inner form .pass-link a:hover,
+.form-inner form .contract-link a:hover,
+.form-inner form .login-link a:hover,
+.form-inner form .signup-link a:hover {
+  text-decoration: underline;
+}
+
+input[type="reset"], input[type="submit"] {
+  width: 43%;
+  background-color: #45b4d4;
+  color: black;	
+  padding: 10px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  opacity: 0.9;
+  margin-top: 25px;
+  margin-left: 3%;
+  margin-right: 3%;
+  font-size: 20px;
+  transition: 0.5s;
+}
+
+input[type="reset"]:hover, input[type="submit"]:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.icons {
+  display: flex;
+}
+
+.icons .icon {
+  padding: 6px;
+  min-width: 50px;
+  text-align: center;
+}
+
+.password-icon, .confirm-password-icon, .repeated-password-icon {
+  position: relative;
+  top: -41px;
+  margin-left: 405px;
+  cursor: pointer;
+}
+
+form .alert {
+    font-size: 15px;
+	text-align: justify;
+}
+
+@media only screen and (max-width: 1366px) {
+	.about-website p, .about-website h1 {
+    color: white;
+    }
+	.wrapper {
+	  margin: 0 auto;
+	  margin-top: 5px;
+	  padding: 15px;
+	}
+}
