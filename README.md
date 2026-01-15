@@ -1,14 +1,36 @@
-Здравейте! Тук съм качил някои от важните за мен разработени проекти, докато бях студент в моя университет.
+# University Projects
 
-Ще отбележа, че проектите "Cloud Technologies" (Облачни технологии) и "PSBM" (в превод означава "Програмни системи за бизнес моделиране") работят изцяло, докато другите два проекта си останаха недовършени след тяхното създаване, поради липса на време.
-Единият проект, който не работи изцяло е дипломната ми работа, с която завърших обучението си в бакалавърската ми степен, докато другия представлява проект, който представях заедно с мои колеги по дисциплината "Софтуерно инженерство".
+A curated collection of key university projects I worked on during my studies.
 
-Относно разработката по дипломния ми проект използвах комбинация от много технологии, като например HTML, CSS, Javascript, JQuery, Ajax, PHP, MySQL и Bootstrap, за да изградя логиката на приложението. Като дизайн не е кой знае какво, но по-важното е да работи нормално.
-За търсачката използвах Ajax, Javascript и PHP като целта беше страниците, които се показват за определената категория да се избират без да се презарежда прозореца на браузъра. Избирането на категория и съответно подкатегория, както и продуктите, 
-които да се показват в страницата съм ги реализирал с PHP и MySQL, но всичко това работи само за категория филми, тъй като не съм слагал данни за останалите категории, иначе щеше да се получи доста добре.
-За отварянето и разглеждането на самите продукти за съответната категория съм използвал Javascript, отново PHP и MySQL. За ефектите на сайта и интерактивния дизайн съм комбинирал Bootstrap и CSS, заедно с Javascript и JQuery.
-И накрая, за регистрацията и логина на сайта, както и за излизането от него също съм използвал PHP и MySQL. За това се сещам в момента, което мога да споделя относно този проект. Много съжалявам, че не мога да покажа как работи уеб приложението, тъй като трябва да се заплати хоста за сървър, защото съм използвал PHP и имам база от данни.
+## Highlights
+- ✅ **Cloud Technologies** — complete and working
+- ✅ **PSBM (Software Systems for Business Modeling)** — complete and working
+- ⚠️ **Bachelor Diploma Project** — partially completed (core functionality implemented)
+- ⚠️ **Software Engineering Project** — partially completed (presented with teammates; future improvements planned)
 
-Останалите уеб приложения са по-лесни за създаване в сравнение с дипломния ми проект, тъй като там съм използвал по-малко програмни технологии, най-вече Javascript и малко Bootstrap, като изключим HTML и CSS. Възможно е при някои приложения да липсва или да не работят добре настройките по гъвкавия им дизайн. 
+## Tech Stack (across projects)
+- **Front-end:** HTML, CSS, JavaScript, jQuery, Bootstrap
+- **Back-end:** PHP
+- **Database:** MySQL
+- **Other:** AJAX (dynamic loading without full page refresh)
 
-Приложението ми по Софтуерно инженерство освен, че не е довършено поради липса на време, като идея не е много добре развито, но обмислям да го завърша в бъдеще, заедно с дипломния ми проект и то по най-добрия начин.
+## Bachelor Diploma Project — Overview
+A web application built as my Bachelor’s diploma project. The main focus was functionality and core features.
+
+### Key Features
+- Category/subcategory navigation and product listing powered by **PHP + MySQL**
+- Dynamic page updates for selected categories using **AJAX + JavaScript + PHP** (no full browser reload)
+- Product details view implemented with **JavaScript + PHP + MySQL**
+- UI interactions and visual effects using **Bootstrap + CSS + jQuery**
+- User authentication: **registration, login, logout** with **PHP + MySQL**
+
+### Notes
+- Some functionality is fully demonstrated only in the **Movies** category because sample data for other categories was not added.
+- A public live demo is not available at the moment, as the project requires hosting and a database server.
+
+## Other Web Applications
+Smaller projects using fewer technologies (mainly **JavaScript** and some **Bootstrap**, plus HTML/CSS).  
+Responsive behavior may be incomplete in some cases.
+
+## Software Engineering Project
+An unfinished project due to time constraints. The concept needs further development, and I plan to complete and improve it in the future.
